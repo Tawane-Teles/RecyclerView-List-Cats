@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageViewCat"
         android:layout_width="161dp"
         android:layout_height="141dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +25,6 @@
         android:textColor="#D13706"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imageViewCat"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

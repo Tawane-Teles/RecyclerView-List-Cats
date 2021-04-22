@@ -17,9 +17,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val Cat: List<Cat> =
             listOf(
-                Cat("Emy Teles Rodrigues"),
-                Cat("Cleido Teles Rodrigues"),
-                Cat("Tiago Lima Rodrigues")
+                Cat("Emy Teles Rodrigues", R.drawable.img_cat),
+                Cat("Cleido Teles Rodrigues", R.drawable.img_cat2),
+                Cat("Tiago Lima Rodrigues", R.drawable.img_cat3)
             )
         adapterCats.item = Cat
         adapterCats.catitem = Cat

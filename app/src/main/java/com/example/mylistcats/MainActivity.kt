@@ -9,7 +9,7 @@ import com.example.mylistcats.model.Cat
 
 class MainActivity : AppCompatActivity() {
 
-    private var adapterCats = CatsAdapter()
+    private val adapterCats = CatsAdapter()
     var listCats: RecyclerView? = null
     var search: SearchView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
                 Cat("Cleido Teles Rodrigues"),
                 Cat("Tiago Lima Rodrigues")
             )
-
+        adapterCats.item = Cat
         adapterCats.catitem = Cat
 
         setupViews()

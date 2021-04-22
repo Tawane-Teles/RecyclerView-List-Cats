@@ -28,14 +28,47 @@ class CatsAdapter : RecyclerView.Adapter<CatsViewHolder>(), Filterable {
     override fun onBindViewHolder(holder: CatsViewHolder, position: Int) {
         val cat = item[position]
         holder.bind(cat)
-
     }
+
 
     override fun getFilter(): Filter {
-        TODO("Not yet implemented")
+        return object : Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                filterItem = if (charSearch.isEmpty()) {
+                    catitem as ArrayList<Cat>
+
+                } else {
+                    val resultList = ArrayList<Cat>()
+                    for (row in catitem) {
+                        if (row.name.toLowerCase().contains(constraint.toString().toLowerCase())) {
+                            resultList.add(row)
+                        }
+                    }
+                    resultList
+                }
+                val filterResultLis = FilterResults()
+                filterResultLis.values = filterItem
+                return filterResultLis
+            }
+
+            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
+                try {
+                    item = results?.values as List<Cat>
+                    notifyDataSetChanged()
+                } catch (e: Exception) {
+                    item = catitem
+                    print(e.message)
+
+                }
+            }
+
+        }
     }
 
+
 }
+
 
 class CatsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(item: Cat) {
